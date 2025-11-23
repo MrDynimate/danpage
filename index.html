@@ -1,11 +1,223 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="utf-8">
-<title>Hello, World!</title>
-</head>
-<body>
-    <h1>Hello, World!</h1>
-    <p>This is the sample of my landing page!</p>
-</body>
+
+<!-- head -->
+<!-- 头 部 -->
+    <head>
+        <!-- meta -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="keywords" content="Landing page, blog">
+        <meta name="description" content="blog | landing page">
+        <meta name="author" content="Danny Lee">
+        <!-- title -->
+        <title>萤火 · 个人田野</title>
+        
+        <!-- Tailwind -->
+        <script src="https://cdn.tailwindcss.com"></script>
+
+        <!-- custom fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@200;400;700&family=Cinzel:wght@400;600&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        fontFamily: {
+                            serif: ['"Noto Serif SC"', 'serif'],
+                            title: ['"Cinzel"', 'serif'], // 更有神话感的标题字体
+                            sans: ['"Lato"', 'sans-serif'],
+                        },
+                        colors: {
+                            space: '#030712',    // 宇宙深黑
+                            starlight: '#e0f2fe', // 星光白
+                            nebula: '#4c1d95',   // 星云紫
+                            aurora: '#0d9488',   // 极光青
+                        },
+                        animation: {
+                            'twinkle': 'twinkle 4s ease-in-out infinite',
+                            'float': 'float 8s ease-in-out infinite',
+                            'aurora-flow': 'auroraFlow 20s linear infinite',
+                        },
+                        keyframes: {
+                            twinkle: {
+                                '0%, 100%': { opacity: '0.3', transform: 'scale(0.8)' },
+                                '50%': { opacity: '1', transform: 'scale(1.2)' },
+                            },
+                            float: {
+                                '0%, 100%': { transform: 'translateY(0)' },
+                                '50%': { transform: 'translateY(-15px)' },
+                            },
+                            auroraFlow: {
+                                '0%': { backgroundPosition: '0% 50%' },
+                                '100%': { backgroundPosition: '200% 50%' },
+                            }
+                        }
+                    }
+                }
+            }
+        </script>
+
+        <link rel="stylesheet" href="assets/css/style.css">    
+    </head>
+
+<!-- body -->
+<!-- 主 体 -->
+    <body class="bg-space font-sans antialiased selection:bg-cyan-500/30 selection:text-cyan-100">
+
+        <!-- 背景 -->
+        <div class="stars-bg"></div>
+        <div class="aurora-layer"></div>
+        <div id="star-container" class="fixed inset-0 z-0 pointer-events-none"></div>
+
+        <!-- 导航 -->
+        <nav class="fixed top-0 w-full p-8 md:p-12 z-50 flex justify-between items-start mix-blend-plus-lighter">
+            <a href="#hero" class="group flex items-center gap-3 text-slate-400 hover:text-white transition-colors duration-500">
+                <i data-lucide="compass" class="w-4 h-4 opacity-60 group-hover:opacity-100 group-hover:rotate-45 transition-all"></i>
+                <span class="text-xs tracking-[0.2em] font-title">UNIVERSE</span>
+            </a>
+            <a href="mailto:hi@star.dev" class="group flex items-center gap-3 text-slate-400 hover:text-white transition-colors duration-500">
+                <span class="text-xs tracking-[0.2em] font-title">SIGNAL</span>
+                <i data-lucide="radio" class="w-4 h-4 opacity-60 group-hover:opacity-100 group-hover:animate-pulse transition-all"></i>
+            </a>
+        </nav>
+    
+        <!-- Hero Section -->
+        <section id="hero" class="relative w-full h-screen flex flex-col justify-center items-center z-10">
+            <!-- 封面 -->
+            <div class="text-center space-y-4">
+                <h1 class="text-5xl md:text-8xl font-title text-transparent bg-clip-text bg-gradient-to-b from-white via-cyan-100 to-slate-400 drop-shadow-[0_0_25px_rgba(255,255,255,0.3)] tracking-widest">
+                    丹尼小筑
+                </h1>
+                <p class="text-slate-400 tracking-[0.5em] text-xs md:text-sm uppercase font-light mt-4">
+                    Logic is the structure of the stars
+                </p>
+                <button onclick="scrollToShowcase()" class="mt-12 px-6 py-3 bg-cyan-500/30 text-white rounded-lg hover:bg-cyan-500/50 transition">Explore</button>
+            </div>
+
+            <!-- 底部引导 -->
+            <div class="absolute bottom-12 cursor-pointer group flex flex-col items-center gap-3" onclick="scrollToShowcase()">
+                <span class="text-[10px] text-cyan-200/50 tracking-[0.3em] uppercase group-hover:text-cyan-200 transition-colors">
+                    Explore the Core
+                </span>
+                <i data-lucide="chevron-down" class="w-5 h-5 text-cyan-400/70 animate-bounce"></i>
+            </div>
+        </section>
+
+        <!-- Showcase Section (空占位) -->
+        <section id="showcase" class="relative w-full min-h-screen py-32 px-4 md:px-20 z-20 bg-space/30 backdrop-blur-sm">
+            <div class="max-w-7xl mx-auto">
+                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center shadow-lg shadow-cyan-500/20">
+                    <span class="text-5xl font-title text-white/10">
+                        01
+                    </span> 
+                    <h2 class="text-3xl text-cyan-100/80 font-serif tracking-widest">
+                        Showcase
+                    </h2>
+                </div>
+                
+                <!-- Bento Grid Container -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl w-full">
+                    <!-- 1. 核心哲学 (大块) -->
+                    <div class="glass-card md:col-span-2 md:row-span-2 rounded-2xl p-8 relative overflow-hidden group cursor-pointer" onclick="openModal('philosophy')">
+                        <div class="absolute inset-0 bg-gradient-to-br from-indigo-900/40 to-black/80 z-0"></div>
+                        <div class="relative z-10 h-full flex flex-col justify-between">
+                            <div>
+                                <i data-lucide="cpu" class="w-8 h-8 text-cyan-300 mb-4"></i>
+                                <h3 class="text-2xl font-serif text-white mb-2">构造者 · Architect</h3>
+                                <p class="text-slate-400 text-sm leading-relaxed max-w-sm">
+                                    我相信代码不仅是功能的堆砌，更是逻辑的诗篇。在混乱的数据洪流中，构建秩序与美。
+                                </p>
+                            </div>
+                            <div class="flex gap-2 mt-8 flex-wrap">
+                                <span class="px-3 py-1 rounded-full border border-white/10 text-xs text-cyan-200/70">System Design</span>
+                                <span class="px-3 py-1 rounded-full border border-white/10 text-xs text-cyan-200/70">Minimalism</span>
+                            </div>
+                            <div class="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                                <i data-lucide="arrow-up-right" class="w-6 h-6 text-white"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2. 技术栈 (竖条) -->
+                    <div class="glass-card md:col-span-1 md:row-span-2 rounded-2xl p-6 relative group overflow-hidden cursor-pointer" onclick="openModal('stack')">
+                        <div class="absolute inset-0 bg-gradient-to-b from-cyan-900/20 to-black/80 z-0"></div>
+                        <div class="relative z-10 h-full flex flex-col">
+                            <i data-lucide="code-2" class="w-6 h-6 text-purple-300 mb-6"></i>
+                            <h3 class="text-lg font-serif text-white mb-6 vertical-text h-full mx-auto border-l border-white/10 pl-4 group-hover:border-cyan-400/50 transition-colors">
+                                技艺 · Tech Stack
+                            </h3>
+                            <div class="mt-auto space-y-2 text-right">
+                                <div class="text-xs text-slate-400 font-mono">React / Next</div>
+                                <div class="text-xs text-slate-400 font-mono">TypeScript</div>
+                                <div class="text-xs text-slate-400 font-mono">WebGL</div>
+                                <div class="text-xs text-slate-400 font-mono">Rust</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3. 精选作品 (方块) -->
+                    <div class="glass-card md:col-span-1 md:row-span-1 rounded-2xl p-6 flex flex-col justify-center items-center text-center group cursor-pointer relative overflow-hidden" onclick="openModal('works')">
+                        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-40 group-hover:opacity-60 group-hover:scale-110 transition-all duration-700"></div>
+                        <div class="absolute inset-0 bg-black/50"></div>
+                        <div class="relative z-10">
+                            <h3 class="text-3xl font-title text-white mb-1">03</h3>
+                            <p class="text-xs tracking-widest text-cyan-200 uppercase">Projects</p>
+                        </div>
+                    </div>
+
+                    <!-- 4. 博客/生活 (方块) -->
+                    <div class="glass-card md:col-span-1 md:row-span-1 rounded-2xl p-6 flex flex-col justify-between group cursor-pointer hover:bg-white/5" onclick="openModal('blog')">
+                        <div class="flex justify-between items-start">
+                            <i data-lucide="feather" class="w-5 h-5 text-pink-300"></i>
+                            <span class="text-[10px] bg-pink-500/20 text-pink-200 px-2 py-0.5 rounded">LATEST</span>
+                        </div>
+                        <div>
+                            <p class="text-xs text-slate-400 mb-1">2024.11.23</p>
+                            <p class="text-sm text-white font-serif line-clamp-2 group-hover:text-pink-200 transition-colors">
+                                在数字荒原中寻找诗意：关于重构的思考
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- 5. 旅程/时间线 (宽条) -->
+                    <div class="glass-card md:col-span-2 md:row-span-1 rounded-2xl p-8 flex items-center justify-between group cursor-pointer" onclick="openModal('journey')">
+                        <div class="flex items-center gap-6">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center shadow-lg shadow-cyan-500/20">
+                                <i data-lucide="map" class="w-6 h-6 text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-serif text-white">旅程 · Journey</h3>
+                                <p class="text-xs text-slate-400 mt-1">From 2025 to Infinity</p>
+                            </div>
+                        </div>
+                        <div class="hidden md:flex gap-8">
+                            <div class="text-center">
+                                <div class="text-lg font-title text-white">5+</div>
+                                <div class="text-[10px] text-slate-500 uppercase">Years</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-lg font-title text-white">30+</div>
+                                <div class="text-[10px] text-slate-500 uppercase">Projects</div>
+                            </div>
+                        </div>
+                        <i data-lucide="chevron-right" class="w-5 h-5 text-slate-500 group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+
+        <!-- JS -->
+        <script src="assets/js/stars.js"></script>
+        <script src="assets/js/scroll.js"></script>
+        <script src="assets/js/app.js"></script>
+        <script src="assets/js/init.js"></script>
+        <script>
+            lucide.createIcons();
+        </script>
+    </body>
 </html>

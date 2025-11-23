@@ -1,0 +1,60 @@
+body {
+    background-color: #030712;
+    color: #e2e8f0;
+    overflow-x: hidden;
+}
+
+/* 隐藏滚动条 */
+::-webkit-scrollbar { width: 0px; background: transparent; }
+
+/* 星空背景层 */
+.stars-bg {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    background: radial-gradient(circle at 50% 100%, #172554 0%, #020617 60%, #000000 100%);
+}
+
+/* 极光层 */
+.aurora-layer {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.4;
+    background: linear-gradient(45deg, transparent 40%, rgba(76, 29, 149, 0.3) 60%, rgba(13, 148, 136, 0.2) 80%);
+    filter: blur(80px);
+}
+
+/* ==========================
+css/style.css
+========================== */
+
+
+/* Space background */
+body {
+background: #030712;
+}
+
+
+/* Glass card effect */
+/* 玻璃拟态卡片 */
+.glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.glass-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 40px -10px rgba(13, 148, 136, 0.2);
+}
+
+.vertical-text {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    letter-spacing: 0.3em;
+}
