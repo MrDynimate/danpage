@@ -27,17 +27,6 @@ body {
     filter: blur(80px);
 }
 
-/* ==========================
-css/style.css
-========================== */
-
-
-/* Space background */
-body {
-background: #030712;
-}
-
-
 /* Glass card effect */
 /* 玻璃拟态卡片 */
 .glass-card {
@@ -57,4 +46,19 @@ background: #030712;
     writing-mode: vertical-rl;
     text-orientation: mixed;
     letter-spacing: 0.3em;
+}
+
+.fade-in {
+    animation: fadeIn 2s ease-out forwards;
+    opacity: 0;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+        
+.no-select {
+    user-select: none;
+    -webkit-user-select: none;
 }
