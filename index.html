@@ -7,16 +7,17 @@
         <!-- meta -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="keywords" content="Landing page, blog">
+        <meta name="keywords" content="Mr.Dynamic">
         <meta name="description" content="blog | landing page">
         <meta name="author" content="Danny Lee">
         <!-- title -->
-        <title>萤火 · 个人田野</title>
+        <title>Mr.Dynamic</title>
 
         <!-- custom fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@200;400;700&family=Cinzel:wght@400;600&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&display=swap" rel="stylesheet">
 
         <!-- icon -->
         <script src="https://unpkg.com/lucide@latest"></script>
@@ -28,33 +29,37 @@
                 theme: {
                     extend: {
                         fontFamily: {
-                            serif: ['"Noto Serif SC"', 'serif'],
-                            title: ['"Cinzel"', 'serif'], // 更有神话感的标题字体
-                            sans: ['"Lato"', 'sans-serif'],
+                            sans: ['Outfit', 'sans-serif'],
                         },
                         colors: {
-                            space: '#030712',    // 宇宙深黑
-                            starlight: '#e0f2fe', // 星光白
-                            nebula: '#4c1d95',   // 星云紫
-                            aurora: '#0d9488',   // 极光青
+                            'neon-blue': '#00f2ff',
+                            'neon-purple': '#bc13fe',
+                            'dark-bg': '#0f172a',
                         },
                         animation: {
-                            'twinkle': 'twinkle 4s ease-in-out infinite',
-                            'float': 'float 8s ease-in-out infinite',
-                            'aurora-flow': 'auroraFlow 20s linear infinite',
+                            'blob': 'blob 7s infinite',
+                            'float': 'float 6s ease-in-out infinite',
+                            'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                            'pulse-glow': 'pulseGlow 2s infinite',
                         },
                         keyframes: {
-                            twinkle: {
-                                '0%, 100%': { opacity: '0.3', transform: 'scale(0.8)' },
-                                '50%': { opacity: '1', transform: 'scale(1.2)' },
+                            blob: {
+                                '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                                '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                                '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                                '100%': { transform: 'translate(0px, 0px) scale(1)' },
                             },
                             float: {
                                 '0%, 100%': { transform: 'translateY(0)' },
-                                '50%': { transform: 'translateY(-15px)' },
+                                '50%': { transform: 'translateY(-20px)' },
                             },
-                            auroraFlow: {
-                                '0%': { backgroundPosition: '0% 50%' },
-                                '100%': { backgroundPosition: '200% 50%' },
+                            fadeInUp: {
+                                '0%': { opacity: '0', transform: 'translateY(20px)' },
+                                '100%': { opacity: '1', transform: 'translateY(0)' },
+                            },
+                            pulseGlow: {
+                                '0%, 100%': { boxShadow: '0 0 10px rgba(0, 242, 255, 0.5)' },
+                                '50%': { boxShadow: '0 0 25px rgba(0, 242, 255, 0.9)' },
                             }
                         }
                     }
@@ -67,7 +72,7 @@
 
 <!-- body -->
 <!-- 主 体 -->
-    <body class="bg-space font-sans antialiased selection:bg-cyan-500/30 selection:text-cyan-100 overflow-hidden">
+    <body class="bg-dark-bg text-white overflow-x-hidden selection:bg-neon-blue selection:text-black">
 
         <!-- 背景 -->
         <div class="stars-bg"></div>
@@ -75,147 +80,151 @@
         <div id="star-container" class="fixed inset-0 z-0 pointer-events-none"></div>
 
         <!-- 导航 -->
-        <nav class="fixed top-0 w-full p-8 md:p-12 z-50 flex justify-between items-start mix-blend-plus-lighter fade-in no-select" style="animation-delay: 0.2s;">
-            <a class="group flex items-center gap-3 text-slate-400 hover:text-white transition-colors duration-500" onclick="scrollToHeropage()">
-                <i data-lucide="compass" class="w-4 h-4 opacity-60 group-hover:opacity-100 group-hover:rotate-45 transition-all"></i>
-                <span class="text-xs tracking-[0.2em] font-title">UNIVERSE</span>
-            </a>
-            <a href="mailto:hi@star.dev" class="group flex items-center gap-3 text-slate-400 hover:text-white transition-colors duration-500">
-                <span class="text-xs tracking-[0.2em] font-title">SIGNAL</span>
-                <i data-lucide="radio" class="w-4 h-4 opacity-60 group-hover:opacity-100 group-hover:animate-pulse transition-all"></i>
-            </a>
+        <nav class="fixed top-0 w-full z-50 px-6 py-4 flex justify-between items-center transition-all duration-300" id="navbar">
+            <div class="text-2xl font-bold tracking-tighter hover:text-neon-blue transition-colors cursor-pointer" onclick="scrollToTop()">
+                MR.DAN<span class="text-neon-blue">.</span>
+            </div>
+            <div class="hidden md:flex space-x-8 text-sm font-light tracking-wide">
+                <a href="javascript:void(0)" onclick="scrollToTop()" class="hover:text-neon-blue transition-colors">Home</a>
+                <a href="javascript:void(0)" onclick="scrollToAbout()" class="hover:text-neon-blue transition-colors">About</a>
+                <a href="#portfolio" class="hover:text-neon-blue transition-colors">Blog</a>
+                <a href="#contact" class="hover:text-neon-blue transition-colors">Portfolio</a>
+            </div>
+            <div class="md:hidden text-xl cursor-pointer">
+                <i class="fa-solid fa-bars"></i>
+            </div>
         </nav>
     
         <!-- Hero Section -->
-        <section id="hero" class="relative w-full h-screen flex flex-col justify-center items-center z-10 fade-in no-select" style="animation-delay: 1s;">
-            <!-- 封面 -->
-            <div class="text-center space-y-4">
-                <h1 class="text-5xl md:text-8xl font-title text-transparent bg-clip-text bg-gradient-to-b from-white via-cyan-100 to-slate-400 drop-shadow-[0_0_25px_rgba(255,255,255,0.3)] tracking-widest">
-                    丹尼小筑
-                </h1>
-                <p class="text-slate-400 tracking-[0.5em] text-xs md:text-sm uppercase font-light mt-4">
-                    Logic is the structure of the stars
-                </p>
-                <button onclick="scrollToShowcase()" class="mt-12 px-6 py-3 bg-cyan-500/30 text-white rounded-lg hover:bg-cyan-500/50 transition">Explore</button>
+        <section id="hero" class="fixed top-0 left-0 z-0 h-screen w-full flex items-center justify-center bg-dynamic overflow-hidden">
+        
+            <!-- Animated Background Blobs -->
+            <div class="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
+                <div class="absolute top-1/4 left-1/4 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
+                <div class="absolute top-1/3 right-1/4 w-72 h-72 bg-cyan-500 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
+                <div class="absolute -bottom-8 left-1/3 w-72 h-72 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-4000"></div>
             </div>
 
-            <!-- 底部引导 -->
-            <div class="absolute bottom-12 cursor-pointer group flex flex-col items-center gap-3" onclick="scrollToShowcase()">
-                <span class="text-[10px] text-cyan-200/50 tracking-[0.3em] uppercase group-hover:text-cyan-200 transition-colors">
-                    Explore the Core
-                </span>
-                <i data-lucide="chevron-down" class="w-5 h-5 text-cyan-400/70 animate-bounce"></i>
+            <!-- Hero Content -->
+            <div class="relative z-10 text-center px-4">
+                <div class="mb-4 inline-block px-3 py-1 border border-neon-blue/30 rounded-full bg-neon-blue/10 backdrop-blur-sm animate-fade-in-up" style="animation-delay: 0.1s;">
+                    <span class="text-neon-blue text-xs uppercase tracking-widest font-bold">Welcome to my universe</span>
+                </div>
+                
+                <h1 class="text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter mb-2 animate-fade-in-up" style="animation-delay: 0.3s;">
+                    <span class="block text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-gray-400">MR.</span>
+                    <span class="block text-transparent bg-clip-text bg-gradient-to-r from-neon-blue to-neon-purple text-glow mt-[-10px] md:mt-[-20px]">DYNAMIC</span>
+                </h1>
+                
+                <p class="text-xl md:text-2xl text-gray-300 font-light mt-6 mb-8 animate-fade-in-up" style="animation-delay: 0.5s;">
+                    Danny Lee <span class="mx-2 text-neon-purple">•</span> 李星云
+                </p>
+
+                <!-- Scroll Trigger Button -->
+                <button onclick="scrollToAbout()" class="group relative px-8 py-4 bg-transparent overflow-hidden rounded-full border border-white/20 hover:border-neon-blue transition-colors duration-300 animate-fade-in-up" style="animation-delay: 0.7s;">
+                    <div class="absolute inset-0 w-0 bg-neon-blue transition-all duration-[250ms] ease-out group-hover:w-full opacity-10"></div>
+                    <span class="relative flex items-center gap-2 font-bold tracking-wider text-sm">
+                        START JOURNEY <i class="fa-solid fa-arrow-down group-hover:translate-y-1 transition-transform"></i>
+                    </span>
+                </button>
+            </div>
+
+            <!-- Scroll Indicator at Bottom -->
+            <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer z-20" onclick="scrollToAbout()">
+                <i class="fa-solid fa-chevron-down text-white/50 text-2xl"></i>
             </div>
         </section>
 
-        <!-- Showcase Section -->
-        <section id="showcase" class="relative w-full min-h-screen py-32 px-4 md:px-20 z-20 bg-space/30 backdrop-blur-sm">
-            <!-- 返回hero -->
-            <div class="absolute top-12 left-1/2 -translate-x-1/2 cursor-pointer group flex flex-col items-center gap-3" onclick="scrollToHeropage()">
-                <span class="text-[10px] text-cyan-200/50 tracking-[0.3em] uppercase group-hover:text-cyan-200 transition-colors">
-                    Home
-                </span>
-                <svg class="icon" aria-hidden="true">
-                    <use xlink:href="#icon-earthplanetsp"></use>
-                </svg>
-            </div>
-            <!-- Showcase title -->
-            <div class="max-w-7xl mx-auto">
-                <div class="mb-16 flex items-baseline gap-4 border-b border-white/10 pb-6">
-                    <span class="text-5xl font-title text-white/10">
-                        01
-                    </span> 
-                    <h2 class="text-xl text-cyan-100/80 font-serif tracking-widest">
-                        Showcase
-                    </h2>
-                </div>
+        <!-- About Section -->
+        <section id="about" class="mt-[100vh] min-h-screen w-full bg-slate-900 relative z-10 py-24 px-6 md:px-20 lg:px-32 shadow-[0_-20px_60px_rgba(0,0,0,0.8)]">
+        
+            <!-- Connecting Line -->
+            <div class="absolute top-8 left-1/2 w-px h-16 bg-gradient-to-b from-neon-blue to-transparent transform -translate-x-1/2 opacity-50"></div>
+
+            <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mt-8">
                 
-                <!-- Bento Grid Container -->
-                <div class="grid grid-cols-2 md:grid-cols-4 md:grid-rows-3 gap-6 max-w-8xl h-auto md:h-[800px]">
-                    <!-- 1. 核心哲学  -->
-                    <div class="glass-card md:col-span-2 md:row-span-2 rounded-2xl p-8 relative overflow-hidden group cursor-pointer" onclick="openModal('philosophy')">
-                        <div class="absolute inset-0 bg-gradient-to-br from-indigo-900/40 to-black/80 z-0"></div>
-                        <div class="relative z-10 h-full flex flex-col justify-between">
-                            <div>
-                                <i data-lucide="cpu" class="w-8 h-8 text-cyan-300 mb-4"></i>
-                                <h3 class="text-2xl font-serif text-white mb-2">构造者 · Architect</h3>
-                                <p class="text-slate-400 text-sm leading-relaxed max-w-sm">
-                                    我相信代码不仅是功能的堆砌，更是逻辑的诗篇。在混乱的数据洪流中，构建秩序与美。
-                                </p>
-                            </div>
-                            <div class="flex gap-2 mt-8 flex-wrap">
-                                <span class="px-3 py-1 rounded-full border border-white/10 text-xs text-cyan-200/70">System Design</span>
-                                <span class="px-3 py-1 rounded-full border border-white/10 text-xs text-cyan-200/70">Minimalism</span>
-                            </div>
-                            <div class="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                                <i data-lucide="arrow-up-right" class="w-6 h-6 text-white"></i>
+                <!-- Left: Avatar/Visual -->
+                <div class="relative group opacity-0 transition-all duration-1000 transform translate-y-10" id="about-visual">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-neon-blue to-neon-purple rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
+                    <div class="relative w-full aspect-square rounded-2xl bg-slate-800 border border-slate-700 overflow-hidden flex items-center justify-center">
+                        <!-- Geometric Abstract Avatar representation -->
+                        <div class="relative w-64 h-64">
+                            <div class="absolute inset-0 border-4 border-neon-blue rounded-full animate-[spin_10s_linear_infinite]"></div>
+                            <div class="absolute inset-4 border-4 border-neon-purple rounded-full animate-[spin_15s_linear_infinite_reverse]"></div>
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <i class="fa-solid fa-bolt text-6xl text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.8)] animate-pulse"></i>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <!-- 2. 技术栈 (竖条) -->
-                    <div class="glass-card md:col-span-1 md:row-span-2 rounded-2xl p-6 relative group overflow-hidden cursor-pointer" onclick="openModal('stack')">
-                        <div class="absolute inset-0 bg-gradient-to-b from-cyan-900/20 to-black/80 z-0"></div>
-                        <div class="relative z-10 h-full flex flex-col">
-                            <i data-lucide="code-2" class="w-6 h-6 text-purple-300 mb-6"></i>
-                            <h3 class="text-lg font-serif text-white mb-6 vertical-text h-full mx-auto border-l border-white/10 pl-4 group-hover:border-cyan-400/50 transition-colors">
-                                技艺 · Tech Stack
-                            </h3>
-                            <div class="mt-auto space-y-2 text-right">
-                                <div class="text-xs text-slate-400 font-mono">React / Next</div>
-                                <div class="text-xs text-slate-400 font-mono">TypeScript</div>
-                                <div class="text-xs text-slate-400 font-mono">WebGL</div>
-                                <div class="text-xs text-slate-400 font-mono">Rust</div>
-                            </div>
-                        </div>
+                <!-- Right: Text Content -->
+                <div class="opacity-0 transition-all duration-1000 delay-300 transform translate-y-10" id="about-text">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                        Who is <span class="text-neon-blue">Mr. Dynamic</span>?
+                    </h2>
+                    <div class="space-y-6 text-gray-300 leading-relaxed text-lg">
+                        <p>
+                            你好，我是 <strong class="text-white">Danny Lee</strong>。
+                        </p>
+                        <p>
+                            Mr.Dynamic,我一如既往地追求着技术的进步与产品的创新。For Free, For All!
+                        </p>
+                        <p>
+                            我的想法不仅通过嵌入式于现实中执行，更跳动在每一个动作的细节里。从感知世界的Navigation到学习如何运动的Deep Learning，我热衷于探索技术的边界。
+                        </p>
                     </div>
 
-                    <!-- 3. 精选作品 (方块) -->
-                    <div class="glass-card md:col-span-1 md:row-span-1 rounded-2xl p-6 flex flex-col justify-center items-center text-center group cursor-pointer relative overflow-hidden" onclick="openModal('works')">
-                        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-40 group-hover:opacity-60 group-hover:scale-110 transition-all duration-700"></div>
-                        <div class="absolute inset-0 bg-black/50"></div>
-                        <div class="relative z-10">
-                            <h3 class="text-3xl font-title text-white mb-1">03</h3>
-                            <p class="text-xs tracking-widest text-cyan-200 uppercase">Projects</p>
-                        </div>
-                    </div>
-
-                    <!-- 4. 博客/生活 (方块) -->
-                    <div class="glass-card md:col-span-1 md:row-span-1 rounded-2xl p-6 flex flex-col justify-between group cursor-pointer hover:bg-white/5" onclick="openModal('blog')">
-                        <div class="flex justify-between items-start">
-                            <i data-lucide="feather" class="w-5 h-5 text-pink-300"></i>
-                            <span class="text-[10px] bg-pink-500/20 text-pink-200 px-2 py-0.5 rounded">LATEST</span>
+                    <!-- Stats / Quick Info -->
+                    <div class="grid grid-cols-3 gap-4 mt-10 mb-10 border-t border-slate-700 pt-8">
+                        <div>
+                            <span class="block text-3xl font-bold text-white">3+</span>
+                            <span class="text-sm text-gray-400">Years Exp</span>
                         </div>
                         <div>
-                            <p class="text-xs text-slate-400 mb-1">2024.11.23</p>
-                            <p class="text-sm text-white font-serif line-clamp-2 group-hover:text-pink-200 transition-colors">
-                                在数字荒原中寻找诗意：关于重构的思考
-                            </p>
+                            <span class="block text-3xl font-bold text-white">-/-</span>
+                            <span class="text-sm text-gray-400">Projects</span>
+                        </div>
+                        <div>
+                            <span class="block text-3xl font-bold text-white">100%</span>
+                            <span class="text-sm text-gray-400">Passion</span>
                         </div>
                     </div>
 
-                    <!-- 5. 旅程/时间线 (宽条) -->
-                    <div class="glass-card md:col-span-2 md:row-span-1 rounded-2xl p-8 flex items-center justify-between group cursor-pointer" onclick="openModal('journey')">
-                        <div class="flex items-center gap-6">
-                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center shadow-lg shadow-cyan-500/20">
-                                <i data-lucide="map" class="w-6 h-6 text-white"></i>
+                    <!-- Links Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <a href="#" class="glass-card p-4 rounded-xl flex items-center gap-4 hover:bg-white/10 transition-all group">
+                            <div class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center text-neon-blue group-hover:scale-110 transition-transform">
+                                <i class="fa-brands fa-github text-xl"></i>
                             </div>
                             <div>
-                                <h3 class="text-xl font-serif text-white">旅程 · Journey</h3>
-                                <p class="text-xs text-slate-400 mt-1">From 2025 to Infinity</p>
+                                <h3 class="font-bold">GitHub</h3>
+                                <p class="text-xs text-gray-400">查看我的Project代码</p>
                             </div>
-                        </div>
-                        <div class="hidden md:flex gap-8">
-                            <div class="text-center">
-                                <div class="text-lg font-title text-white">5+</div>
-                                <div class="text-[10px] text-slate-500 uppercase">Years</div>
+                            <i class="fa-solid fa-arrow-right ml-auto text-gray-500 group-hover:text-neon-blue group-hover:translate-x-1 transition-all"></i>
+                        </a>
+
+                        <a href="#" class="glass-card p-4 rounded-xl flex items-center gap-4 hover:bg-white/10 transition-all group">
+                            <div class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center text-neon-purple group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-pen-nib text-xl"></i>
                             </div>
-                            <div class="text-center">
-                                <div class="text-lg font-title text-white">30+</div>
-                                <div class="text-[10px] text-slate-500 uppercase">Projects</div>
+                            <div>
+                                <h3 class="font-bold">Blog</h3>
+                                <p class="text-xs text-gray-400">技术思考与随笔</p>
                             </div>
-                        </div>
-                        <i data-lucide="chevron-right" class="w-5 h-5 text-slate-500 group-hover:translate-x-1 transition-transform"></i>
+                            <i class="fa-solid fa-arrow-right ml-auto text-gray-500 group-hover:text-neon-purple group-hover:translate-x-1 transition-all"></i>
+                        </a>
+
+                        <a href="#" class="glass-card p-4 rounded-xl flex items-center gap-4 hover:bg-white/10 transition-all group md:col-span-2">
+                            <div class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center text-green-400 group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-layer-group text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold">Portfolio</h3>
+                                <p class="text-xs text-gray-400">精选设计与开发案例</p>
+                            </div>
+                            <i class="fa-solid fa-arrow-right ml-auto text-gray-500 group-hover:text-green-400 group-hover:translate-x-1 transition-all"></i>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -225,8 +234,8 @@
             <span class="hidden md:block">© 2025 Dynamic. All Rights Reserved.</span>
             <div class="flex space-x-6">
                 <a href="#" class="hover:text-white transition-colors">Github</a>
-                <a href="#" class="hover:text-white transition-colors">Twitter</a>
-                <a href="#" class="hover:text-white transition-colors">Dribbble</a>
+                <a href="#" class="hover:text-white transition-colors">WhatApp</a>
+                <a href="#" class="hover:text-white transition-colors">Wechat</a>
             </div>
         </footer>
 
