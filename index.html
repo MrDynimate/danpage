@@ -82,7 +82,7 @@
         <!-- 导航 -->
         <nav class="fixed top-0 w-full z-50 px-6 py-4 flex justify-between items-center transition-all duration-300" id="navbar">
             <div class="text-2xl font-bold tracking-tighter hover:text-neon-blue transition-colors cursor-pointer" onclick="scrollToTop()">
-                MR.DAN<span class="text-neon-blue">.</span>
+                Mr.DAN<span class="text-neon-blue">.</span>
             </div>
             <div class="hidden md:flex space-x-8 text-sm font-light tracking-wide">
                 <a href="javascript:void(0)" onclick="scrollToTop()" class="hover:text-neon-blue transition-colors">Home</a>
@@ -112,7 +112,7 @@
                 </div>
                 
                 <h1 class="text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter mb-2 animate-fade-in-up" style="animation-delay: 0.3s;">
-                    <span class="block text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-gray-400">MR.</span>
+                    <span class="block text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-gray-400">Mr.</span>
                     <span class="block text-transparent bg-clip-text bg-gradient-to-r from-neon-blue to-neon-purple text-glow mt-[-10px] md:mt-[-20px]">DYNAMIC</span>
                 </h1>
                 
@@ -171,7 +171,7 @@
                             Mr.Dynamic,我一如既往地追求着技术的进步与产品的创新。For Free, For All!
                         </p>
                         <p>
-                            我的想法不仅通过嵌入式于现实中执行，更跳动在每一个动作的细节里。从感知世界的Navigation到学习如何运动的Deep Learning，我热衷于探索技术的边界。
+                            我的想法不仅通过嵌入式于现实中执行,更跳动在每一个动作的细节里。从感知世界的Navigation到学习如何运动的Deep Learning,我热衷于探索技术的边界。
                         </p>
                     </div>
 
@@ -182,7 +182,7 @@
                             <span class="text-sm text-gray-400">Years Exp</span>
                         </div>
                         <div>
-                            <span class="block text-3xl font-bold text-white">-/-</span>
+                            <span class="block text-3xl font-bold text-white"></span>
                             <span class="text-sm text-gray-400">Projects</span>
                         </div>
                         <div>
@@ -230,22 +230,17 @@
             </div>
         </section>
 
-        <footer class="fixed bottom-0 w-full z-10 p-6 flex justify-center md:justify-between items-center text-xs text-gray-500 fade-in no-select" style="animation-delay: 1s;">
-            <span class="hidden md:block">© 2025 Dynamic. All Rights Reserved.</span>
-            <div class="flex space-x-6">
-                <a href="#" class="hover:text-white transition-colors">Github</a>
-                <a href="#" class="hover:text-white transition-colors">WhatApp</a>
-                <a href="#" class="hover:text-white transition-colors">Wechat</a>
-            </div>
+        <footer id="main-footer" class="relative z-10 py-8 text-center text-gray-500 text-sm bg-black">
+            <p>&copy; 2023-2024 Mr. Dynamic (Danny Lee). All Rights Reserved.</p>
         </footer>
 
-        <!-- JS -->
+        <button id="back-to-top-btn" onclick="scrollToTop()" class="fixed bottom-8 right-8 w-16 h-16 rounded-full bg-dark-bg border border-neon-blue flex items-center justify-center text-neon-blue shadow-[0_0_20px_rgba(0,242,255,0.4)] hover:scale-110 hover:shadow-[0_0_40px_rgba(0,242,255,0.8)] transition-all duration-300 z-50 animate-pulse-glow group">
+            <i class="fa-solid fa-arrow-up text-2xl group-hover:-translate-y-1 transition-transform"></i>
+        </button>
 
+        <!-- JS -->
         <script src="assets/js/scroll.js"></script>
         <script src="assets/js/observer.js"></script>
         <script src="assets/js/init.js"></script>
-        <script>
-            lucide.createIcons();
-        </script>
     </body>
 </html>

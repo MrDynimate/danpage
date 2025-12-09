@@ -53,6 +53,10 @@ html {
     display: none; /* Initially hide the about section */
 }
         
+#main-footer {
+    display: none;
+}
+
 #back-to-top-btn {
     display: none; /* Initially hide the back to top button */
 }
