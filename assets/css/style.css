@@ -49,6 +49,10 @@ html {
     text-shadow: 0 0 20px rgba(0, 242, 255, 0.5);
 }
 
+.noselect {
+    user-select: none;
+}
+
 #about {
     display: none; /* Initially hide the about section */
 }
